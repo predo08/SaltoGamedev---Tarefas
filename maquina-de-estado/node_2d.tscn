@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://batbpdturt3yh"]
+
+[ext_resource type="Script" uid="uid://dwvngenpop55" path="res://character_body_2d.gd" id="1_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://xmnc6mreb8xm" path="res://Caramguejo/Idle/Crab1.png" id="1_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://b4q1yvm5jvgw3" path="res://Caramguejo/Idle/Crab2.png" id="2_kdubu"]
+[ext_resource type="Texture2D" uid="uid://cjnq67ryw0aej" path="res://Caramguejo/Idle/Crab5.png" id="3_d21ai"]
+[ext_resource type="Texture2D" uid="uid://dj33mvvaeys05" path="res://Caramguejo/Idle/Crab3.png" id="4_rj586"]
+[ext_resource type="Texture2D" uid="uid://l2o1m6mgakxh" path="res://Caramguejo/Idle/Crab4.png" id="5_4d7sh"]
+[ext_resource type="Texture2D" uid="uid://bwf6o1g5tpur" path="res://Caramguejo/Jump/Crab_Attack1.png" id="7_d2bti"]
+[ext_resource type="Texture2D" uid="uid://c7432rleu4r3b" path="res://Caramguejo/Jump/Crab_Attack2.png" id="8_ta5nu"]
+[ext_resource type="Texture2D" uid="uid://crsn3ldwca607" path="res://Caramguejo/Jump/Crab_Attack3.png" id="9_flf07"]
+[ext_resource type="Texture2D" uid="uid://demr3dcnn2mr5" path="res://Caramguejo/Jump/Crab_Attack4.png" id="10_k73cj"]
+[ext_resource type="Texture2D" uid="uid://dyea1v7hgr6h6" path="res://Caramguejo/Moving/CrabMoving1.png" id="11_rjqkl"]
+[ext_resource type="Texture2D" uid="uid://crstfxbjbpku" path="res://Caramguejo/Moving/CrabMoving2.png" id="12_fs4d3"]
+[ext_resource type="Texture2D" uid="uid://5wamr7aymy3s" path="res://Caramguejo/Moving/CrabMoving3.png" id="13_7vxoj"]
+[ext_resource type="Texture2D" uid="uid://bbut26myy4gl3" path="res://Caramguejo/Moving/CrabMoving4.png" id="14_ei405"]
+
+[sub_resource type="TileSet" id="TileSet_iu1yk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu1yk"]
+size = Vector2(1485, 199.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iu1yk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_q6r6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kdubu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_d21ai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rj586")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4d7sh")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_d2bti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ta5nu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_flf07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_k73cj")
+}],
+"loop": 1,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rjqkl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fs4d3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7vxoj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ei405")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jh62d"]
+size = Vector2(49, 56)
+
+[node name="Node2D" type="Node2D" unique_id=1045882590]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=114305852]
+tile_set = SubResource("TileSet_iu1yk")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1468100574]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=814081371]
+offset_left = -161.0
+offset_top = 448.0
+offset_right = 1321.0
+offset_bottom = 651.0
+color = Color(1, 1, 0.015686275, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=663839974]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1044548052]
+position = Vector2(580.5, 552.75)
+shape = SubResource("RectangleShape2D_iu1yk")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=1566966969]
+offset_left = -162.0
+offset_top = -19.0
+offset_right = 1320.0
+offset_bottom = 452.0
+color = Color(0.01999998, 0.68966675, 1, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="StaticBody2D2/ColorRect" unique_id=1088250575]
+position = Vector2(162, 19)
+script = ExtResource("1_nr8wp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D2/ColorRect/CharacterBody2D" unique_id=1391881924]
+position = Vector2(565, 412.99997)
+scale = Vector2(4.749998, 4.0555553)
+sprite_frames = SubResource("SpriteFrames_iu1yk")
+animation = &"Idle"
+frame_progress = 0.22979116
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/ColorRect/CharacterBody2D" unique_id=839172794]
+position = Vector2(565, 413)
+shape = SubResource("RectangleShape2D_jh62d")
